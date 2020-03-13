@@ -81,6 +81,18 @@ class Dealer:
         return self.hand
 
 
+def hand_converter(hand):
+    value_mapping = {'A':1,'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'Jack':10,'Queen':10,'King':10}
+    card_values = ['A','2','3','4','5','6','7','8','9','10','Jack','Queen','King']
+    hand_value = 0
+
+    for card in card_values:
+        if (card in hand):
+            hand_value += value_mapping[card]
+    print(hand_value)
+
+
+
 print("Welcome to Black Jack!")
 
 CardDeck = Deck()
@@ -90,21 +102,15 @@ house = Dealer(1000000)
 print("Dealer's hand is " + house.original_dealer_hand())
 print(house.cards)
 print("Dealer's hand is " + house.new_dealer_hand())
-#print("Player's hand is " + player1.new_dealer_hand())
 print(house.cards)
-#print("Player's hand is " + player1.player_hand()+ " & " +  player1.player_hand())
+hand_converter(house.hand)
+print("Dealer's hand is " + player1.original_player_hand())
+print(player1.cards)
+print("Dealer's hand is " + player1.new_player_hand())
+print(player1.cards)
 
-def hand_converter(hand):
-    value_mapping = {'A':1,'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'10':10,'Jack':10,'Queen':10,'King':10}
-    card_values = ['A','2','3','4','5','6','7','8','9','10','Jack','Queen','King']
-    hand_value = 0
 
-    for card in card_values:
-        if (card in hand):
-            hand_value += int(card)
-    print(hand_value)
-
-hand_converter(house.new_dealer_hand())
+hand_converter(player1.hand)
 
 
 
